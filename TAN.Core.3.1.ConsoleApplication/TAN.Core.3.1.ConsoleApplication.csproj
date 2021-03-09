@@ -6,4 +6,14 @@
     <RootNamespace>TAN.Core._3._1.ConsoleApplication</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.4" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TAN.Core.3.1.ConsoleApplication.ApplicationCore\TAN.Core.3.1.ConsoleApplication.ApplicationCore.csproj" />
+    <ProjectReference Include="..\TAN.Core.3.1.ConsoleApplication.Infrastructure\TAN.Core.3.1.ConsoleApplication.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

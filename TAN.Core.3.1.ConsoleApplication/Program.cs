@@ -1,12 +1,28 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System.Threading.Tasks;
+using TAN.Core._3._1.ConsoleApplication.ApplicationCore.Interfaces;
 
 namespace TAN.Core._3._1.ConsoleApplication
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var serviceProvider = DependencyInject();
+
+            var contactController = serviceProvider.GetService<IContactController>();
+            await contactController.AddAsync();
+        }
+
+        private static ServiceProvider DependencyInject()
+        {
+            var serviceProvider = new ServiceCollection()
+                .AddLogging()
+                .AddDatabaseConfigure()
+                .AddApplicationCoreClassDependencyInject()
+                .BuildServiceProvider();
+
+            return serviceProvider;
         }
     }
 }
